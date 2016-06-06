@@ -3,6 +3,7 @@ layout: post
 title: "Functional game programming with core.async"
 date: 2016-05-31
 description: Part one of an ongoing series
+comments: true
 tags:
 - games
 - functional
@@ -31,12 +32,10 @@ A simple game loop in JavaScript games may look something like this:
 // JavaScript game loop
 var inputEvents = [];
 var world = init();
-var old = timestamp();
+var dt = 1.0 / 60;
 
 function gameLoop() {
     requestAnimationFrame(gameLoop);
-    var now = timestamp();
-    var dt = (now - old) / 1000;
     processInput(inputEvents);
     update(dt);
     draw();
@@ -55,15 +54,13 @@ a working game loop:
 
 (defonce input-events (atom []))
 (defonce world (init))
-(defonce old (atom (js/timestamp)))
+(defonce dt (/ 1 60))
 
 (defn game-loop []
   (.requestAnimationFrame js/window game-loop)
-  (let [now timestamp
-        dt (/ (- now old) 1000)]
     (process-input input-events)
     (update dt)
-    (draw)))
+    (draw))
 
 (game-loop)
 ```
@@ -114,10 +111,8 @@ Let's try to improve that:
       (update-monsters dt)))
 
 (defn game-loop [old world]
-  (let [now (js/timestamp)
-        dt (/ (- old now) 1000)]
-    (draw world)
-    (.requestAnimationFrame js/window (partial game-loop now (update world dt))))
+  (.requestAnimationFrame js/window (partial game-loop now (update world dt)))
+  (draw world))
 
 (game-loop (js/timestamp) (init args))
 ```
@@ -156,22 +151,22 @@ first-in-first-out order - in other words exactly what we want.
   
 (defmulti process-event first) ;; game event dispatcher
 
+;; Start a background loop listening for the game to happen
 (async/go-loop [old (js/timestamp)
                 world (init)]
   (let [[data ch] (async/alts! [time mouse])]
     (case ch
       time ;; signal is from time channel
-      (let [now (js/timestamp)
-            dt (/ (- now old) 1000)]
+      (do
         (.requestAnimationFrame js/window clock-tick)
         (draw world)
-        (recur now (update world dt)))
+        (recur (update world dt)))
         
       mouse ;; signal is from mouse channel
-      (recur old (process-event data world)
+      (recur (process-event data world))
       
       :else ;; signal was sent by aliens to your brain or something
-      (recur old world)))))
+      (recur world))))
         
 (clock-tick)
 ```
@@ -238,4 +233,4 @@ I have not yet benchmarked that approach in situations, where complex event
 chains with huge state changes are triggered, everything is still very
 experimental.
 
-A simple working example is soon to follow.
+A simple working example can be found in the "kicker" subfolder of [my pet projects](https://github.com/hermann-p/pet-projects).

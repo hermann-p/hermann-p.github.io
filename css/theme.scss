@@ -14,7 +14,7 @@
 body {
   padding-top: 80px;
   color: #ddd;
-  background-color: #292929;
+  background-color: #106900;
   background-image: url(./pics/triangles.png);
 }
 .copyright {
@@ -26,19 +26,20 @@ body {
 .footer a {
   color: #ee4444;
 }
-.sidebar h1 {
-  color: #ddd;
-//  font: {
-//    size: 1.3em
-//  }
+.sidebar h {
 }
 .sidebar li {
   margin-top: .7em;
   line-height: 1em;
+//  color: #00FF25;
+}
+
+.sidebar a {
+    color: #64f549;
 }
 
 .well {
-  background-color: #444;
+  background-color: #168f00;
   box-shadow: 0px 0px 0px 0px, 0px 8px 16px rgba(0, 0, 0, 0.2);
   border: 0px;
   border-radius: 6px;
@@ -93,10 +94,11 @@ blockquote {
 //                    Links
 //********************************************************
 a {
-  color: #3CA2A2;
+    color: #64f549;
 }
+
 a:hover {
-  color: #3CA2A2;
+  color: #64f549;
   border-bottom: 1px solid transparent;
 }
 
@@ -116,7 +118,7 @@ ul.social-media {
     display: inline-block;
     color: white;
     &:hover {
-      color: #3CA2A2;
+      color: #64f549;
     }
   }
 }
@@ -218,6 +220,7 @@ div.post-meta {
   border: 0;
   padding-left: 30px;
 }
+
 .note:before {
   content: "\f06a";
   font-size: 2em;
@@ -249,13 +252,15 @@ nav a {
 nav.navbar {
   -webkit-transition: all 0.7s ease;
   transition: all 0.7s ease;
+  background-color: #1cb500;
 }
 nav.navbar.shrink {
   min-height: 15px;
 }
 .navbar-brand {
   font-size: 30px;
-  color: #3CA2A2 !important;
+  //  color: #3CA2A2 !important;
+  color: #ffffff !important;
 
 }
 nav.shrink a {
@@ -299,7 +304,8 @@ nav.shrink .navbar-toggle {
 //                    Footer
 //********************************************************
 .footer-distributed {
-  background-color: #292c2f;
+    //  background-color: #292c2f;
+  background-color: #1CB500;
   font: normal 16px sans-serif;
   padding: 20px 25px;
   margin-top: 80px;

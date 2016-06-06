@@ -49,7 +49,7 @@ need for closed projects may arise.
 License
 =======
 
-This blog uses [Jekyll Clean Dark theme by Pavel Makhov](http://jekyllthemes.org/themes/jekyll-clean-dark/).
+This blog uses a modified version of [Jekyll Clean Dark theme by Pavel Makhov](http://jekyllthemes.org/themes/jekyll-clean-dark/).
 
 It includes the following files which are the properties of their
 respective owners:
