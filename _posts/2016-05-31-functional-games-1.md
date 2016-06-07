@@ -141,6 +141,7 @@ first-in-first-out order - in other words exactly what we want.
 ``` clojure
 (defonce time (async/chan 5))
 (defonce mouse (async/chan 2))
+(defonce dt (/ 1 60))
 
 (defn init-game [& args] ;; make very boring world
   {:player {:x 0 :y 0}
@@ -160,7 +161,7 @@ first-in-first-out order - in other words exactly what we want.
       (do
         (.requestAnimationFrame js/window clock-tick)
         (draw world)
-        (recur (update world dt)))
+        (recur (update world)))
         
       mouse ;; signal is from mouse channel
       (recur (process-event data world))
