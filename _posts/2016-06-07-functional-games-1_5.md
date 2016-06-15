@@ -24,6 +24,10 @@ further down, so copy-pasting without thinking won't work. You may, however,
 get the working code from the folder "kicker" in
 [my pet project repo](https://github.com/hermann-p/pet-projects).
 
+<iframe src="https://waechtertroll.lima-city.de/kicker-1.5/" width="100%"></iframe>
+
+[Full screen](https://waechtertroll.lima-city.de/kicker-1.5/)
+
 ## Event handling
 
 Now, all those events fired at our main loop need to be handled.
