@@ -1,8 +1,0 @@
-{"tile-type":"ortho",
- "atlas":"ortho-grey",
- "width":2,
- "height":2,
- "tiles":[{"t":1,"r":0},{"t":4,"r":1},
-          {"t":1,"r":3},{"t":2,"r":3}],
- "start":1,
- "moves":[2,3,4,5]}

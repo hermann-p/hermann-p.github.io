@@ -1,1 +1,0 @@
-{"version":3,"file":"\/home\/hermann-p\/workspace\/noodleconnection\/game\/resources\/public\/js\/game\/chans.js","sources":["chans.cljs"],"lineCount":9,"mappings":";AAAA;;;AAGA,AAAKA,mBAAM,AAACC;AACZ,AAAKC,oBAAO,AAACD;AACb,AAAKE,kBAAK,AAACF","names":["game.chans\/state","cljs.core.async\/chan","game.chans\/action","game.chans\/time"]}
