@@ -1,64 +1,27 @@
-{% include header.html %}
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-<div class="wrapper">
-  <div class="content">
-    <div class="container container-center">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="article">
-            <div class="well">
-              <h1><a href="{{ site.url | append:site.baseurl | append:page.url }}">{{ page.title }}</a></h1>
-              <div class="post-meta">
-                <div class="post-time">
-                  <i class="fa fa-calendar"></i>
-                  <time>{{ page.date | date_to_string }}</time>
-                </div>
-                <ul>
-                  {% for tag in page.tags %}
-                    <li><a href="{{ site.url | append:site.baseurl }}/tag/{{ tag }}">{{ tag }}</a></li>
-                  {% endfor %}
-                </ul>
-              </div>
-              <div class="post-content">
-                <div id="toc" class="toc"></div>
-                {{ content }}
-                {% include share.html %}
-              </div>
-              {% if page.comments %}
-              <div id="disqus_thread">
-                <script>
-    /**
-     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-     */
-    
-    var disqus_config = function () {
-        this.page.url = "https://hermann-p.github.io/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = {{ page.id }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    
-    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
-        var d = document, s = d.createElement('script');
-        
-        s.src = '//waechtertroll.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
-        
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-              </div>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 hidden-xs">
-          {% include sidebar.html %}
-        </div>
-      </div>
-    </div>
-    {% include disqus-comments.html %}
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}"
+            itemprop="datePublished"
+            class="media-heading">
+        {{ page.date | date: "%b %-d, %Y" }}
+      </time>
+
+      {% if page.author %}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">{{ page.author }}</span>
+        </span>
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
   </div>
-  {% include footer.html %}
-</div>
+
+</article>

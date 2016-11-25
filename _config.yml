@@ -1,54 +1,63 @@
-# Jekyll configuration
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-name: Keyboard Mercenary
-description: Computational Scientist
+# Site settings
+title: hellschwarz
+description: > # this means to ignore newlines until "baseurl:"
+  a keyboard mercenary
+baseurl: /  # the subpath of your site, e.g. /blog
+url: https://hermann-p.github.io/  # the base hostname & protocol for your site
 
-# Url is currently only used only for the RSS feed in feed.xml
-#url: http://hermann-p.github.io
-#url: http://localhost:4000
-url: ''
+# Build settings
+markdown: kramdown
 
-# For a project page here should be a project name. Otherwise (for user's/organizaion's page leave it empty)
-baseurl: ''
+# Sass settings
+sass:
+  style: compressed
 
-share:
-  facebook: true
-  twitter: true
-  gplus: true
-  linkedin: true
-  pinterest: false
-  email: true
+# Theme settings
+theme_mode: standard  # choices are: 'dark', 'standard', 'markdown'
+
+# Customizations
+your_name: hellschwarz
+email: waechtertroll@web.de
+
+navigation:
+  - text: Home
+    url: /
+  - text: Blog
+    url: blog
+#   - text: Docs
+#     url: docs
+  - text: Projects
+    url: examples
+
+projects:
+  - name: pressspan
+    description: Tool to find, filter and visualize complex splicing events from `segemehl` output
+    link: https://github.com/hermann-p/pressspan
+  - name: Das Rezeptbuch
+    description: RESTful server for our family cooking recipes with responsive, reactive web frontend
+    link: https://github.com/hermann-p/recipes
+  - name: Noodles+
+    description: >
+      Code framework for the HTML5/ClojureScript/Pixi.js puzzle game,
+      designed for mobile devices, published by Estraneo Labs
+    link: waechtertroll.lima-city.de/noodles-nosound
+#   - name: git-secret
+#     description: A bash-tool to store your private data inside a git repository.
+#     link: https://sobolevn.github.io/git-secret
+#     image: https://github.com/sobolevn/git-secret/blob/7c9ae0b1853d4c15549027524121b9e40219fe47/images/git-secret-sm.png?raw=true
 
 social:
-  github: 'hermann-p'
-  stackoverflow: waechtertroll
-  linkedin:
-  instagram:
-  lastfm:
-  rss: feed.xml
+  - service: github
+    username: hermann-p
+    link: https://github.com/hermann-p
 
-# Google Analytics key, leave blank to ignore
-google_analytics_key:
-# Yandex metrika (https://metrica.yandex.com/) leave blank to ignore or put true to use
-yandex_metrica:
-
-
-# Set this to your disqus shortname to enable comments. Note that the 'comments'
-# setting below must also be true. Individual posts can override 'comments' to
-# disable on a post-by-post basis
-disqus: waechtertroll
-comments: true
-
-permalink: /:year/:month/:title
-
-# Enable for using pages, more details are here: http://jekyllrb.com/docs/pagination/
-#paginate: 3
-
-highlighter: rouge
-
-markdown: kramdown
-kramdown:
-  input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
-  hard_wrap: false
-
-exclude: ['README.md', 'LICENSE']
+# Plugins
+gems:
+  - jekyll-seo-tag
