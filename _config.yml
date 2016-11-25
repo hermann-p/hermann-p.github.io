@@ -9,7 +9,7 @@
 title: hellschwarz
 description: > # this means to ignore newlines until "baseurl:"
   a keyboard mercenary
-baseurl: /  # the subpath of your site, e.g. /blog
+baseurl: https://hermann-p.github.io  # the subpath of your site, e.g. /blog
 url: https://hermann-p.github.io/  # the base hostname & protocol for your site
 
 # Build settings
