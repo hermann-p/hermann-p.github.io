@@ -31,10 +31,11 @@ navigation:
     url: /
   - text: Blog
     url: /blog
-#   - text: Docs
-#     url: docs
   - text: Projects
     url: /examples
+  - text: About
+    url: /skills
+
 
 projects:
   - name: pressspan
