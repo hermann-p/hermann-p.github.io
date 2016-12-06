@@ -48,7 +48,8 @@ projects:
     description: >
       Code framework for the HTML5/ClojureScript/Pixi.js puzzle game,
       designed for mobile devices, published by Estraneo Labs.
-      Sounds and levels not included for copyright reasons.
+      Sounds and levels not included for copyright reasons. View in
+      portrait mode.
     link: https://waechtertroll.lima-city.de/noodles-nosound
 #   - name: git-secret
 #     description: A bash-tool to store your private data inside a git repository.
