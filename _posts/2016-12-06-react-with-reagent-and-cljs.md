@@ -13,10 +13,10 @@ tags:
 
 Some time ago Facebook's React framework brought some exciting
 innovations to web development. Its users could define a page's layout
-and components exactly and link the content to variables. Whenever
-scripts would modify the variable's content the page would
-automagically reflect those changes -- with some rad performance
-tweaks under the hood.
+and components exactly once and link the content to
+variables. Whenever scripts would modify the variable's content the
+page would automagically reflect those changes -- with some rad
+performance tweaks under the hood.
 
 If you are some strange alien being and have never heard of React
 before, you should stop, use a search engine of your choice and do
@@ -26,14 +26,14 @@ So, end blog post now, right? Well, not exactly.
 
 # What's more to say?
 
-Ok, now some really oppinionanted statement. React does a terrific
-job, but writing React web pages is really verbose, error-prone and,
-to be honest, sucks. You need to define components in a mixture of
-HTML- JavaScript and React-specific code syntax, create rendering
-functions for each element and then directly modify the elements
-accessed by those components. Alltogether, tode becomes a mess (though
-far less than doing all those page content modifications by hand,
-admittedly).
+Ok, now some really oppinionated statement. React does a terrific job,
+but writing React web pages is really verbose, error-prone and, to be
+honest, it sucks. You need to define components in a mixture of HTML-
+JavaScript and React-specific code syntax inside the JS source, create
+rendering functions for each element and then directly modify the
+elements accessed by those components. Alltogether, code becomes a
+mess (though far less than doing all those page content modifications
+by hand, admittedly).
 
 That's why I started to use [reagent, a React wrapper for
 ClojureScript](https://github.com/reagent-project/reagent) to do any
@@ -51,9 +51,8 @@ example, so I'll do one too, to show how easy it can be done in CLJS
 and reagent.
 
 First things first, I created a new figwheel project and added the
-current versions of reagent and dommy to the dependencies (dommy
-just because I'm a lazy typer and don't want do type "(aget
-(js/document.selectElementById ID) 0)" over and over.
+current versions of reagent and dommy to the dependencies (dommy for
+some syntactic sugar to get DOM elements and add listeners).
 
 Then I modified the auto-generated index.html file by inserting a div
 with the todo-list:
@@ -62,14 +61,12 @@ with the todo-list:
     <html>
       <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet" type="text/css">
       </head>
       <body>
         <div id="app">
           <h2>ToDo:</h2>
           <input type="text" id="input-text"></input>
-          <button id="add-item-button">Hinzufügen</button>
+          <button id="add-item-button">add task</button>
           <div id="list-container"></div>
         </div>
         <script src="js/compiled/todo.js" type="text/javascript"></script>
@@ -106,6 +103,13 @@ Last thing I added two import statements and eight lines of code to core.cljs:
                              conj       ; append an element
                              (.-value (sel1 :#input-text))))) ; === document.getElementById("input-text").value
 
-Et voilá. Compiled with the "min" flag, this code transpiles to a single 296kb source file (gzipped 80k) containing the page script as well as all required functions from React and dommy.
+Et voilá.
 
 <iframe src="/playground/todo/index.html" height="600px"></iframe>
+
+Compiled with the "min" flag, this code transpiles to a single 296kb
+source file (gzipped 80k) containing the page script as well as all
+required functions from React and dommy. Compare that to requiring all
+React files and jQuery for the syntactic sugar. Btw, reagent claims to
+be faster than using its underlying React directly and dommy claims to
+be much faster than jQuery at similar tasks.
