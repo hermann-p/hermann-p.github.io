@@ -108,4 +108,4 @@ Last thing I added two import statements and eight lines of code to core.cljs:
 
 Et voilá. Compiled with the "min" flag, this code transpiles to a single 296kb source file (gzipped 80k) containing the page script as well as all required functions from React and dommy.
 
-<iframe src="/playground/todo/index.html"></iframe>
+<iframe src="/playground/todo/index.html" height="600px"></iframe>

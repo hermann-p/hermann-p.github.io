@@ -4,7 +4,7 @@ layout: default
 
 # Welcome
 
-![almost me](ani-me.png)
+![almost me](ani-me_smaller.png)
 
 I am a scientist and freelance software developer located in
 Regensburg, Bavaria. I'm enthusiastic about open source software,
