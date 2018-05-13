@@ -1,0 +1,27 @@
+<!doctype="html">
+<html>
+  <head>
+    <script type="text/javascript" src="./vivagraph.min.js"></script>
+    <script type="text/javascript" src="./ramda.min.js"></script>
+  </head>
+  <body style="width:100%;height:100%;position:relative;padding:none;margin:none;overflow:hidden">
+    <div>
+      seq: <input id="seq" type="text" placeholder="TAATGCCATGGGATGTT" />
+      k: <input id="k-length" type="number" placeholder="3" />
+      <button onClick="makeGraph();">apply</button>
+      </div>
+    <br>
+    <!-- <svg id="cnt" width="100%" height="100%"> -->
+      <svg id="canvas" width="100%" height="100%" style="position:absolute;left:0;top:30px"></svg>
+      <marker id="triangle"
+              viewBox="0 0 10 10" refX="0" refY="5"
+              markerUnits="strokeWidth"
+              markerWidth="4" markerHeight="3"
+              orient="auto">
+        <path d="M 0 0 L 10 5 L 0 10 z" />
+      </marker>
+    <!-- </svg> -->
+    <script type="text/javascript" src="./live.js"></script>
+    <script type="text/javascript">makeGraph();</script>
+  </body>
+</html>
